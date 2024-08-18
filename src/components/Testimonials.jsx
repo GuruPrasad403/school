@@ -1,101 +1,201 @@
-import { Title } from "./Image";
-import leftArrow from '../assets/back-icon.png';
-import rightArrow from '../assets/next-icon.png';
-import user1 from '../assets/user-1.png';
-import user2 from '../assets/user-2.png';
-import user3 from '../assets/user-3.png';
-import user4 from '../assets/user-4.png';
-import { useState } from "react";
+// import { Title } from "./Image";
+// import leftArrow from '../assets/back-icon.png';
+// import rightArrow from '../assets/next-icon.png';
+// import user1 from '../assets/user-1.png';
+// import user2 from '../assets/user-2.png';
+// import user3 from '../assets/user-3.png';
+// import user4 from '../assets/user-4.png';
+// import { useState } from "react";
 
-function Testimonials() {
-    const cardData = [
-        {
-            src: user1,
-            name: "Emily Williams",
-            place: "Edusity, USA",
-            review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
-        },
-        {
-            src: user2,
-            name: "William Jackson",
-            place: "Edusity, USA",
-            review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
-        },
-        {
-            src: user3,
-            name: "Emily Williams",
-            place: "Edusity, USA",
-            review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
-        },
-        {
-            src: user4,
-            name: "William Jackson",
-            place: "Edusity, USA",
-            review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
-        }
-    ];
+// function Testimonials() {
+//     const cardData = [
+//         {
+//             src: user1,
+//             name: "Emily Williams",
+//             place: "Edusity, USA",
+//             review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
+//         },
+//         {
+//             src: user2,
+//             name: "William Jackson",
+//             place: "Edusity, USA",
+//             review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
+//         },
+//         {
+//             src: user3,
+//             name: "Emily Williams",
+//             place: "Edusity, USA",
+//             review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
+//         },
+//         {
+//             src: user4,
+//             name: "William Jackson",
+//             place: "Edusity, USA",
+//             review: "Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities, and commitment to academic excellence have truly exceeded my expectations."
+//         }
+//     ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+//     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+//     const nextSlide = () => {
+//         setCurrentIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+//     };
+
+//     const prevSlide = () => {
+//         setCurrentIndex((prevIndex) => (prevIndex - 1 + cardData.length) % cardData.length);
+//     };
+
+//     return (
+//         <>
+//             <Title titile={'TESTIMONIALS'} subtitle={'What Student Says'}></Title>
+
+//             <div className="relative my-[50px] mx-[100px] flex justify-center items-center p-5 ">
+//                 <img 
+//                     onClick={prevSlide}
+//                     className="cursor-pointer w-[50px] z-10 rounded-full p-[15px] bg-blue-900 absolute left-[10%] top-1/2 transform -translate-y-1/2" 
+//                     src={leftArrow} 
+//                     alt="Previous Slide" 
+//                 />
+//                 <div className="flex justify-center items-center overflow-hidden w-full">
+//                     <div 
+//                         className="flex transition-transform duration-500 ease-in-out"
+//                         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+//                     >
+//                         {cardData.map((ele, index) => (
+//                             <div key={index} className="min-w-full flex justify-center h-full">
+//                                 <Card src={ele.src} name={ele.name} place={ele.place} review={ele.review} />
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//                 <img 
+//                     onClick={nextSlide}
+//                     className="cursor-pointer w-[50px] rounded-full p-[15px] bg-blue-900 absolute right-[10%] top-1/2 transform -translate-y-1/2" 
+//                     src={rightArrow} 
+//                     alt="Next Slide" 
+//                 />
+//             </div>
+//         </>
+//     );
+// }
+
+// export default Testimonials;
+
+// const Card = ({ src, name, place, review }) => {
+//     return (
+//         <div className="flex flex-col justify-center items-start p-8 w-[50vw] h-[30vh] shadow-2xl bg-white rounded-lg">
+//             <div className="flex flex-row justify-start items-center mb-4">
+//                 <div className="bg-blue-900 flex justify-center items-center rounded-full w-16 h-16">
+//                     <img src={src} className="rounded-full w-14 h-14" />
+//                 </div>
+//                 <div className="pl-5">
+//                     <p className="text-blue-900 text-2xl"> {name}</p>
+//                     <p className="text-zinc-600 text-lg"> {place}</p>
+//                 </div>
+//             </div> 
+//             <div className="text-justify text-xl text-gray-700 w-[40vw]">
+//                 <p>{review}</p>
+//             </div>
+//         </div>
+//     );
+// };
+
+
+
+import React, { useState, useEffect } from 'react';
+import logo from '../assets/logo.png';
+
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [bgColor, setBgColor] = useState('bg-opacity-50');
+
+  // Function to handle scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      // Apply background color for both desktop and mobile
+      setBgColor('bg-[#252562]'); // Change this to your desired background color
+    } else {
+      setBgColor('bg-opacity-50');
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Function to toggle the mobile menu
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Function to close the mobile menu
+  const closeMenu = () => setIsOpen(false);
+
+  // Function to handle clicks outside the menu to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest('nav')) {
+        closeMenu();
+      }
     };
 
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + cardData.length) % cardData.length);
-    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
-    return (
-        <>
-            <Title titile={'TESTIMONIALS'} subtitle={'What Student Says'}></Title>
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-20 text-white p-4 transition-colors duration-300 ${bgColor}`}>
+      <div className='flex items-center justify-between'>
+        {/* Logo */}
+        <div>
+          <img src={logo} alt="Logo" className='w-[40vw] lg:w-[15vw] ml-5' />
+        </div>
 
-            <div className="relative my-[50px] mx-[100px] flex justify-center items-center p-5 ">
-                <img 
-                    onClick={prevSlide}
-                    className="cursor-pointer w-[50px] z-10 rounded-full p-[15px] bg-blue-900 absolute left-[10%] top-1/2 transform -translate-y-1/2" 
-                    src={leftArrow} 
-                    alt="Previous Slide" 
-                />
-                <div className="flex justify-center items-center overflow-hidden w-full">
-                    <div 
-                        className="flex transition-transform duration-500 ease-in-out"
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                    >
-                        {cardData.map((ele, index) => (
-                            <div key={index} className="min-w-full flex justify-center h-full">
-                                <Card src={ele.src} name={ele.name} place={ele.place} review={ele.review} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <img 
-                    onClick={nextSlide}
-                    className="cursor-pointer w-[50px] rounded-full p-[15px] bg-blue-900 absolute right-[10%] top-1/2 transform -translate-y-1/2" 
-                    src={rightArrow} 
-                    alt="Next Slide" 
-                />
-            </div>
-        </>
-    );
+        {/* Desktop Menu */}
+        <ul className='hidden md:flex md:flex-row md:space-x-6 text-xl'>
+          <li className='cursor-pointer hover:text-gray-300'>Home</li>
+          <li className='cursor-pointer hover:text-gray-300'>Program</li>
+          <li className='cursor-pointer hover:text-gray-300'>About Us</li>
+          <li className='cursor-pointer hover:text-gray-300'>Campus</li>
+          <li className='cursor-pointer hover:text-gray-300'>Testimonials</li>
+          <li className='flex items-center'>
+            <button className='bg-white text-black rounded-full py-2 px-6 hover:bg-gray-200'>
+              Contact us
+            </button>
+          </li>
+        </ul>
+
+        {/* Mobile Menu Button */}
+        <button onClick={toggleMenu} className='md:hidden text-white focus:outline-none'>
+          <svg className={`w-6 h-6 transform ${isOpen ? 'rotate-90' : 'rotate-0'} transition-transform duration-300`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden fixed inset-0 ${bgColor} text-white transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+        <div className='flex justify-end p-4'>
+          <button onClick={closeMenu} className='text-white'>
+            <svg className='w-6 h-6' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <ul className='flex flex-col items-center mt-16 space-y-4 text-xl'>
+          <li className='cursor-pointer hover:text-gray-300 py-2 px-4' onClick={closeMenu}>Home</li>
+          <li className='cursor-pointer hover:text-gray-300 py-2 px-4' onClick={closeMenu}>Program</li>
+          <li className='cursor-pointer hover:text-gray-300 py-2 px-4' onClick={closeMenu}>About Us</li>
+          <li className='cursor-pointer hover:text-gray-300 py-2 px-4' onClick={closeMenu}>Campus</li>
+          <li className='cursor-pointer hover:text-gray-300 py-2 px-4' onClick={closeMenu}>Testimonials</li>
+          <li>
+            <button className='bg-white text-black rounded-full py-2 px-6 hover:bg-gray-200' onClick={closeMenu}>
+              Contact us
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
-export default Testimonials;
-
-const Card = ({ src, name, place, review }) => {
-    return (
-        <div className="flex flex-col justify-center items-start p-8 w-[50vw] h-[30vh] shadow-2xl bg-white rounded-lg">
-            <div className="flex flex-row justify-start items-center mb-4">
-                <div className="bg-blue-900 flex justify-center items-center rounded-full w-16 h-16">
-                    <img src={src} className="rounded-full w-14 h-14" />
-                </div>
-                <div className="pl-5">
-                    <p className="text-blue-900 text-2xl"> {name}</p>
-                    <p className="text-zinc-600 text-lg"> {place}</p>
-                </div>
-            </div> 
-            <div className="text-justify text-xl text-gray-700 w-[40vw]">
-                <p>{review}</p>
-            </div>
-        </div>
-    );
-};
+export default Navbar;
