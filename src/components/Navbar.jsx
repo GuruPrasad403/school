@@ -25,28 +25,20 @@
 //   );
 // }
 
-// export default Navbar;
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [bgColor, setBgColor] = useState('bg-opacity-50');
-  const [mobileBgColor, setMobileBgColor] = useState('bg-[#252562]');
 
   // Function to handle scroll event
   const handleScroll = () => {
-    if (window.scrollY > 100 && window.innerWidth >= 768) { // Adjust value and ensure it's only for desktop
+    if (window.scrollY > 100) {
+      // Apply background color for both desktop and mobile
       setBgColor('bg-[#252562]'); // Change this to your desired background color
     } else {
       setBgColor('bg-opacity-50');
-    }
-
-    // For mobile view
-    if (window.scrollY > 100 && window.innerWidth < 768) { // Adjust value and ensure it's only for mobile
-      setMobileBgColor('bg-[#252562]');
-    } else {
-      setMobileBgColor('bg-[#252562]'); // Ensure the mobile menu background is always visible
     }
   };
 
@@ -104,7 +96,7 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden fixed inset-0 ${mobileBgColor} text-white transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+      <div className={`md:hidden fixed inset-0 ${bgColor} text-white transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
         <div className='flex justify-end p-4'>
           <button onClick={closeMenu} className='text-white'>
             <svg className='w-6 h-6' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
