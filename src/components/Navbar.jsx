@@ -24,7 +24,6 @@
 //     </nav>
 //   );
 // }
-
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
 
@@ -122,4 +121,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
