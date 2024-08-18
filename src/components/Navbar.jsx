@@ -33,8 +33,7 @@ function Navbar() {
 
   // Function to handle scroll event
   const handleScroll = () => {
-    if (window.scrollY > 100) {
-      // Apply background color for both desktop and mobile
+    if (window.scrollY > 100 && window.innerWidth >= 768) { // Adjust value and ensure it's only for desktop
       setBgColor('bg-[#252562]'); // Change this to your desired background color
     } else {
       setBgColor('bg-opacity-50');
@@ -80,7 +79,7 @@ function Navbar() {
           <li className='cursor-pointer hover:text-gray-300'>Campus</li>
           <li className='cursor-pointer hover:text-gray-300'>Testimonials</li>
           <li className='flex items-center'>
-            <button className='bg-white text-black rounded-full py-2 px-6 hover:bg-gray-200'>
+            <button className='bg-white text-black rounded-full py-2 px-6  hover:bg-gray-200'>
               Contact us
             </button>
           </li>
@@ -95,7 +94,7 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden fixed inset-0 ${bgColor} text-white transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+      <div className={`md:hidden fixed inset-0 bg-[#252562] text-white transition-transform duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
         <div className='flex justify-end p-4'>
           <button onClick={closeMenu} className='text-white'>
             <svg className='w-6 h-6' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -121,3 +120,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
