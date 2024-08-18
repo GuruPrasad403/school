@@ -46,6 +46,7 @@ import About from './components/About';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import hero from './src/assets/hero.png'
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
       <div 
         className="relative w-full h-screen bg-cover bg-center"
         style={{ 
-          backgroundImage: "url('./src/assets/hero.png'), linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7))" 
+          backgroundImage: `url(${hero}), linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7))`
         }}
       >
         <Navbar />
