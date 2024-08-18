@@ -46,7 +46,7 @@ import About from './components/About';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
-import hero from './src/assets/hero.png'
+import hero from './assets/hero.png'
 
 function App() {
   return (
